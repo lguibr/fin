@@ -1,0 +1,5 @@
+{
+  "name": "Wealth Projection Planner",
+  "description": "An application for users to project their long-term wealth by adding recurring income and expenses, simulating investments, and visualizing the growth over time with detailed graphs.",
+  "requestFramePermissions": []
+}
