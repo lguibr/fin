@@ -25,7 +25,7 @@ const Navigation: React.FC = () => {
   };
   
   return (
-    <nav className="sticky top-0 z-50 border-b border-border">
+    <nav className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 lg:px-8">
         <div className="relative flex items-center justify-center h-14">
           {/* Left: Logo */}

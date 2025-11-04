@@ -68,3 +68,4 @@
   "error_amount_positive": "Monto debe ser mayor que 0",
   "error_end_date_invalid": "Fecha final debe ser posterior a fecha inicial"
 }
+

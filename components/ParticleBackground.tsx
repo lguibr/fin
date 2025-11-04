@@ -42,20 +42,20 @@ const ParticleBackground: React.FC = () => {
     window.addEventListener('resize', resizeCanvas);
 
     // Grid settings
-    const gridSize = 60;
+    const gridSize = 30;
     
     // Light particle colors
     const lightColors = [
       'rgba(56, 189, 248, 0.8)',   // sky blue
-      'rgba(139, 92, 246, 0.8)',   // purple
-      'rgba(251, 191, 36, 0.8)',   // gold
-      'rgba(34, 211, 238, 0.8)',   // cyan
+      'rgba(139, 92, 246, 0.6)',   // purple
+      'rgba(251, 191, 36, 0.3)',   // gold
+      'rgba(34, 211, 238, 0.5)',   // cyan
     ];
 
     // Initialize light particles traveling along grid lines
     const initLightParticles = () => {
       lightParticlesRef.current = [];
-      const numParticles = 5;
+      const numParticles = 7;
       
       for (let i = 0; i < numParticles; i++) {
         const isHorizontal = Math.random() > 0.5;
@@ -67,7 +67,7 @@ const ParticleBackground: React.FC = () => {
           lightParticlesRef.current.push({
             x: Math.random() * canvas.width,
             y: gridRow,
-            vx: (Math.random() > 0.5 ? 1 : -1) * (12 + Math.random() * 8),
+            vx: (Math.random() > 0.5 ? 1 : -1) * (12 + Math.random() * 24),
             vy: 0,
             color,
             opacity: 0.8 + Math.random() * 0.2,
@@ -80,7 +80,7 @@ const ParticleBackground: React.FC = () => {
             x: gridCol,
             y: Math.random() * canvas.height,
             vx: 0,
-            vy: (Math.random() > 0.5 ? 1 : -1) * (12 + Math.random() * 8),
+            vy: (Math.random() > 0.5 ? 1 : -1) * (12 + Math.random() * 16),
             color,
             opacity: 0.8 + Math.random() * 0.2,
             size: 0.2 + Math.random() * 0.3,
