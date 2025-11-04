@@ -6,6 +6,7 @@ import Badge from './ui/Badge';
 import { Trash2, Edit, Eye, EyeOff, Search, ArrowUpDown, Filter } from 'lucide-react';
 import { LanguageContext } from '../context/LanguageContext';
 import { cn } from '../lib/utils';
+import ConfirmModal from './ui/ConfirmModal';
 
 interface TransactionListProps {
   transactions: Transaction[];
@@ -24,6 +25,7 @@ const TransactionList: React.FC<TransactionListProps> = ({ transactions, onDelet
   const [sortBy, setSortBy] = useState<SortOption>('date');
   const [filterBy, setFilterBy] = useState<FilterOption>('all');
   const [sortDescending, setSortDescending] = useState(true);
+  const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null);
   
   const formatCurrency = (amount: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(amount);
   
@@ -233,7 +235,7 @@ const TransactionList: React.FC<TransactionListProps> = ({ transactions, onDelet
                   <Button
                     size="icon"
                     variant="ghost"
-                    onClick={() => onDelete(transaction.id)}
+                    onClick={() => setConfirmDeleteId(transaction.id)}
                     className="h-7 w-7 sm:h-8 sm:w-8 hover:text-destructive"
                   >
                     <Trash2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -256,6 +258,22 @@ const TransactionList: React.FC<TransactionListProps> = ({ transactions, onDelet
           Showing {filteredAndSortedTransactions.length} of {transactions.length} transactions
         </div>
       )}
+
+      {/* Confirm Delete Modal */}
+      <ConfirmModal
+        isOpen={!!confirmDeleteId}
+        onClose={() => setConfirmDeleteId(null)}
+        onConfirm={() => {
+          if (confirmDeleteId) {
+            onDelete(confirmDeleteId);
+            setConfirmDeleteId(null);
+          }
+        }}
+        title={t('confirm_delete_transaction_title')}
+        message={t('confirm_delete_transaction_message')}
+        confirmText={t('confirm_button')}
+        cancelText={t('cancel_button')}
+      />
     </div>
   );
 };

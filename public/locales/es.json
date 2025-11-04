@@ -87,6 +87,17 @@
   "projection_name_7": "Fondo de Sueños",
   "projection_name_8": "Misión Libertad Financiera",
   "projection_name_9": "Sendero de Prosperidad",
-  "projection_name_10": "Reino del Flujo de Caja"
+  "projection_name_10": "Reino del Flujo de Caja",
+  "randomize_name": "Nombre aleatorio",
+  "card_total_income": "Ingresos Totales",
+  "card_total_expense": "Gastos Totales",
+  "card_returns": "Retornos",
+  "card_final_total": "Total Final",
+  "confirm_delete_projection_title": "¿Eliminar Proyección?",
+  "confirm_delete_projection_message": "¿Estás seguro de que deseas eliminar esta proyección? Esta acción no se puede deshacer.",
+  "confirm_delete_transaction_title": "¿Eliminar Transacción?",
+  "confirm_delete_transaction_message": "¿Estás seguro de que deseas eliminar esta transacción? Esta acción no se puede deshacer.",
+  "confirm_button": "Eliminar",
+  "cancel_button": "Cancelar"
 }
 

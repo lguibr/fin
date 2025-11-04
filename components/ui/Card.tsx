@@ -1,14 +1,14 @@
 import React from 'react';
 import { cn } from '../../lib/utils';
 
-interface CardProps {
+interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   hover?: boolean;
   padding?: string;
 }
 
-const Card: React.FC<CardProps> = ({ children, className = '', hover = true, padding = 'p-6' }) => {
+const Card: React.FC<CardProps> = ({ children, className = '', hover = true, padding = 'p-6', ...props }) => {
   return (
     <div 
       className={cn(
@@ -16,6 +16,7 @@ const Card: React.FC<CardProps> = ({ children, className = '', hover = true, pad
         hover && "hover:shadow-2xl hover:border-primary/30 hover:scale-[1.01]",
         className
       )}
+      {...props}
     >
       <div className={padding}>{children}</div>
     </div>

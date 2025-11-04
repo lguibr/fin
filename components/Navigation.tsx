@@ -13,6 +13,7 @@ const Navigation: React.FC = () => {
   
   // Extract ID from pathname since useParams doesn't work outside Route
   const isProjectionPage = location.pathname.startsWith('/projection/');
+  const isHomePage = location.pathname === '/';
   const projectionId = isProjectionPage ? location.pathname.split('/projection/')[1] : undefined;
   
   const { projection, loading } = useProjection(projectionId);
@@ -41,6 +42,13 @@ const Navigation: React.FC = () => {
               />
             </Link>
           </div>
+
+          {/* Center: Page Title */}
+          {isHomePage && (
+            <div className="text-sm sm:text-base md:text-lg font-bold text-foreground">
+              {t('home_title')}
+            </div>
+          )}
 
           {/* Center: Projection Name (only on projection pages) */}
           {isProjectionPage && (
