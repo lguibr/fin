@@ -12,12 +12,13 @@ interface TransactionListProps {
   onDelete: (id: string) => void;
   onEdit: (transaction: Transaction) => void;
   onToggleEnabled: (id: string) => void;
+  onAddNew?: () => void;
 }
 
 type SortOption = 'date' | 'amount' | 'name';
 type FilterOption = 'all' | 'income' | 'expense' | 'enabled' | 'disabled';
 
-const TransactionList: React.FC<TransactionListProps> = ({ transactions, onDelete, onEdit, onToggleEnabled }) => {
+const TransactionList: React.FC<TransactionListProps> = ({ transactions, onDelete, onEdit, onToggleEnabled, onAddNew }) => {
   const { t, language } = useContext(LanguageContext);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<SortOption>('date');
@@ -80,6 +81,36 @@ const TransactionList: React.FC<TransactionListProps> = ({ transactions, onDelet
 
     return result;
   }, [transactions, searchQuery, sortBy, filterBy, sortDescending]);
+
+  // Show empty state if no transactions at all
+  if (transactions.length === 0) {
+    return (
+      <div className="flex flex-col items-center justify-center py-16 sm:py-24 px-4">
+        <div className="text-center space-y-6 max-w-md">
+          <div className="w-24 h-24 sm:w-28 sm:h-28 mx-auto rounded-full bg-primary/10 flex items-center justify-center backdrop-blur-sm border border-primary/20">
+            <Search className="w-12 h-12 sm:w-14 sm:h-14 text-primary" />
+          </div>
+          <div className="space-y-2">
+            <h3 className="text-2xl sm:text-3xl font-bold text-foreground">
+              {t('no_transactions_title')}
+            </h3>
+            <p className="text-base sm:text-lg text-muted-foreground">
+              {t('no_transactions_description')}
+            </p>
+          </div>
+          {onAddNew && (
+            <Button
+              onClick={onAddNew}
+              size="lg"
+              className="mt-4 text-base px-8 py-6"
+            >
+              {t('form_add_button')}
+            </Button>
+          )}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">

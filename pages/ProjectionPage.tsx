@@ -23,6 +23,7 @@ const ProjectionPage: React.FC = () => {
   const [mainView, setMainView] = useState<MainView>('projection');
   const [editingTransaction, setEditingTransaction] = useState<Transaction | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [hasRedirectedToTransactions, setHasRedirectedToTransactions] = useState(false);
   const { t } = useContext(LanguageContext);
 
   // Use new state management hooks
@@ -53,6 +54,14 @@ const ProjectionPage: React.FC = () => {
       navigate('/');
     }
   }, [loading, projection, id, navigate]);
+
+  // Redirect to transactions view if no transactions exist (only once)
+  useEffect(() => {
+    if (projection && projection.transactions.length === 0 && !hasRedirectedToTransactions && mainView !== 'transactions') {
+      setMainView('transactions');
+      setHasRedirectedToTransactions(true);
+    }
+  }, [projection, hasRedirectedToTransactions, mainView]);
 
   if (loading) {
     return (
@@ -164,12 +173,15 @@ const ProjectionPage: React.FC = () => {
             {mainView === 'transactions' && (
               <div className="animate-fade-in">
                 <div className="space-y-4">
-                  <h2 className="text-xl font-bold">{t('transactions_title')}</h2>
+                  {projection.transactions.length > 0 && (
+                    <h2 className="text-xl font-bold">{t('transactions_title')}</h2>
+                  )}
                   <TransactionList 
                     transactions={projection.transactions} 
                     onDelete={handleDeleteTransaction} 
                     onEdit={setEditingTransaction} 
-                    onToggleEnabled={handleToggleTransactionEnabled} 
+                    onToggleEnabled={handleToggleTransactionEnabled}
+                    onAddNew={() => setIsModalOpen(true)}
                   />
                 </div>
               </div>

@@ -63,7 +63,7 @@ const Controls: React.FC<ControlsProps> = ({ settings, setSettings }) => {
             <Info className="w-4 h-4 text-muted-foreground cursor-help" />
             <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-10">
               <div className="bg-popover text-popover-foreground text-xs rounded-md px-3 py-2 shadow-lg border border-border w-48">
-                Starting amount in your account
+                {t('tooltip_initial_balance')}
               </div>
             </div>
           </div>
@@ -92,7 +92,7 @@ const Controls: React.FC<ControlsProps> = ({ settings, setSettings }) => {
             <Info className="w-4 h-4 text-muted-foreground cursor-help" />
             <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-10">
               <div className="bg-popover text-popover-foreground text-xs rounded-md px-3 py-2 shadow-lg border border-border w-48">
-                How many years into the future to project
+                {t('tooltip_projection_years')}
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ const Controls: React.FC<ControlsProps> = ({ settings, setSettings }) => {
             <Info className="w-4 h-4 text-muted-foreground cursor-help" />
             <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-10">
               <div className="bg-popover text-popover-foreground text-xs rounded-md px-3 py-2 shadow-lg border border-border w-48">
-                Expected monthly return on investments
+                {t('tooltip_monthly_return')}
               </div>
             </div>
           </div>
@@ -141,7 +141,7 @@ const Controls: React.FC<ControlsProps> = ({ settings, setSettings }) => {
             <Info className="w-4 h-4 text-muted-foreground cursor-help" />
             <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-10">
               <div className="bg-popover text-popover-foreground text-xs rounded-md px-3 py-2 shadow-lg border border-border w-48">
-                Percentage of surplus to invest vs keep as cash
+                {t('tooltip_investment_allocation')}
               </div>
             </div>
           </div>

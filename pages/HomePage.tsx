@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Projection, ProjectionSettings } from '../types';
 import { useProjections, useProjectionActions } from '../hooks/useProjections';
@@ -21,12 +21,26 @@ const HomePage: React.FC = () => {
   const navigate = useNavigate();
   const { t, language } = useContext(LanguageContext);
   
+  // Generate random placeholder projection name
+  const [randomPlaceholder, setRandomPlaceholder] = useState('');
+  
+  useEffect(() => {
+    const randomIndex = Math.floor(Math.random() * 10) + 1;
+    setRandomPlaceholder(t(`projection_name_${randomIndex}`));
+  }, [t, language]);
+  
   // Use new state management hooks
   const { projections, loading: isLoading } = useProjections();
   const { createProjection, deleteProjection, duplicateProjection } = useProjectionActions();
 
   const handleCreateProjection = async () => {
-    const name = newProjectionName.trim() || t('home_projection_name_placeholder');
+    let name = newProjectionName.trim();
+    
+    // If no name provided, use the random placeholder name
+    if (!name) {
+      name = randomPlaceholder;
+    }
+    
     const newProjection: Projection = {
       id: crypto.randomUUID(),
       name,
@@ -36,6 +50,11 @@ const HomePage: React.FC = () => {
     };
     await createProjection(newProjection);
     setNewProjectionName('');
+    
+    // Generate new random placeholder for next creation
+    const randomIndex = Math.floor(Math.random() * 10) + 1;
+    setRandomPlaceholder(t(`projection_name_${randomIndex}`));
+    
     navigate(`/projection/${newProjection.id}`);
   };
 
@@ -56,20 +75,20 @@ const HomePage: React.FC = () => {
           <h2 className="text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             {t('home_title')}
           </h2>
-          <p className="text-muted-foreground mt-2">Manage your financial projections</p>
+          <p className="text-muted-foreground mt-2">{t('home_subtitle')}</p>
         </div>
       </div>
       
       <Card hover={false} className="border-primary/20">
         <div className="flex flex-col sm:flex-row gap-4">
           <Input 
-            label={t('home_projection_name_placeholder')}
+            label={randomPlaceholder}
             hideLabel
             name="newProjectionName"
             value={newProjectionName}
             onChange={(e) => setNewProjectionName(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleCreateProjection()}
-            placeholder={t('home_projection_name_placeholder')}
+            placeholder={randomPlaceholder}
             className="flex-grow"
           />
           <Button onClick={handleCreateProjection} size="lg" className="w-full sm:w-auto">
@@ -116,8 +135,12 @@ const HomePage: React.FC = () => {
                 </div>
 
                 <div className="flex-1 flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground">{proj.transactions.length} transactions</span>
-                  <span className="text-muted-foreground">{proj.settings.projectionYears} years</span>
+                  <span className="text-muted-foreground">
+                    {t(proj.transactions.length === 1 ? 'card_transactions_count' : 'card_transactions_count_plural', { count: proj.transactions.length })}
+                  </span>
+                  <span className="text-muted-foreground">
+                    {t(proj.settings.projectionYears === 1 ? 'card_projection_years' : 'card_projection_years_plural', { years: proj.settings.projectionYears })}
+                  </span>
                 </div>
                 
                 <div className="flex gap-2 pt-4 border-t border-border">

@@ -1,6 +1,7 @@
 {
   "app_title": "Projeção Financeira Futura",
   "home_title": "Minhas Projeções",
+  "home_subtitle": "Gerencie suas projeções financeiras",
   "home_create_new": "Criar Nova Projeção",
   "home_projection_name_placeholder": "Nome da Nova Projeção",
   "home_view_projection": "Ver",
@@ -66,6 +67,26 @@
   "form_description_placeholder": "ex: Salário, Aluguel, Compras",
   "error_description_required": "Descrição é obrigatória",
   "error_amount_positive": "Valor deve ser maior que 0",
-  "error_end_date_invalid": "Data final deve ser após data inicial"
+  "error_end_date_invalid": "Data final deve ser após data inicial",
+  "no_transactions_title": "Nenhuma Transação Ainda",
+  "no_transactions_description": "Comece a construir sua projeção financeira adicionando sua primeira transação.",
+  "card_transactions_count": "{count} transação",
+  "card_transactions_count_plural": "{count} transações",
+  "card_projection_years": "{years} ano",
+  "card_projection_years_plural": "{years} anos",
+  "tooltip_initial_balance": "Valor inicial em sua conta",
+  "tooltip_projection_years": "Quantos anos projetar no futuro",
+  "tooltip_monthly_return": "Retorno mensal esperado nos investimentos",
+  "tooltip_investment_allocation": "Porcentagem do excedente para investir versus manter em caixa",
+  "projection_name_1": "Escadaria pro Milhão",
+  "projection_name_2": "Caminho da Fortuna",
+  "projection_name_3": "Jardim da Árvore do Dinheiro",
+  "projection_name_4": "Futuro Dourado",
+  "projection_name_5": "Foguete da Riqueza",
+  "projection_name_6": "Construtor de Patrimônio",
+  "projection_name_7": "Fundo dos Sonhos",
+  "projection_name_8": "Missão Liberdade Financeira",
+  "projection_name_9": "Trilha da Prosperidade",
+  "projection_name_10": "Reino do Fluxo de Caixa"
 }
 

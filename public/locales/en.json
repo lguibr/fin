@@ -1,6 +1,7 @@
 {
   "app_title": "Financial Future Projection",
   "home_title": "My Projections",
+  "home_subtitle": "Manage your financial projections",
   "home_create_new": "Create New Projection",
   "home_projection_name_placeholder": "New Projection Name",
   "home_view_projection": "View",
@@ -66,6 +67,26 @@
   "form_description_placeholder": "e.g., Salary, Rent, Groceries",
   "error_description_required": "Description is required",
   "error_amount_positive": "Amount must be greater than 0",
-  "error_end_date_invalid": "End date must be after start date"
+  "error_end_date_invalid": "End date must be after start date",
+  "no_transactions_title": "No Transactions Yet",
+  "no_transactions_description": "Start building your financial projection by adding your first transaction.",
+  "card_transactions_count": "{count} transaction",
+  "card_transactions_count_plural": "{count} transactions",
+  "card_projection_years": "{years} year",
+  "card_projection_years_plural": "{years} years",
+  "tooltip_initial_balance": "Starting amount in your account",
+  "tooltip_projection_years": "How many years into the future to project",
+  "tooltip_monthly_return": "Expected monthly return on investments",
+  "tooltip_investment_allocation": "Percentage of surplus to invest vs keep as cash",
+  "projection_name_1": "Stairway to Million",
+  "projection_name_2": "Road to Riches",
+  "projection_name_3": "Money Tree Garden",
+  "projection_name_4": "Golden Future",
+  "projection_name_5": "Wealth Rocket",
+  "projection_name_6": "Fortune Builder",
+  "projection_name_7": "Dream Fund",
+  "projection_name_8": "Financial Freedom Quest",
+  "projection_name_9": "Prosperity Path",
+  "projection_name_10": "Cash Flow Kingdom"
 }
 

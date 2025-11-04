@@ -1,6 +1,7 @@
 {
   "app_title": "Proyección Financiera Futura",
   "home_title": "Mis Proyecciones",
+  "home_subtitle": "Gestiona tus proyecciones financieras",
   "home_create_new": "Crear Nueva Proyección",
   "home_projection_name_placeholder": "Nombre de la Nueva Proyección",
   "home_view_projection": "Ver",
@@ -66,6 +67,26 @@
   "form_description_placeholder": "ej: Salario, Alquiler, Compras",
   "error_description_required": "Descripción es obligatoria",
   "error_amount_positive": "Monto debe ser mayor que 0",
-  "error_end_date_invalid": "Fecha final debe ser posterior a fecha inicial"
+  "error_end_date_invalid": "Fecha final debe ser posterior a fecha inicial",
+  "no_transactions_title": "Sin Transacciones Aún",
+  "no_transactions_description": "Comienza a construir tu proyección financiera agregando tu primera transacción.",
+  "card_transactions_count": "{count} transacción",
+  "card_transactions_count_plural": "{count} transacciones",
+  "card_projection_years": "{years} año",
+  "card_projection_years_plural": "{years} años",
+  "tooltip_initial_balance": "Monto inicial en tu cuenta",
+  "tooltip_projection_years": "Cuántos años proyectar hacia el futuro",
+  "tooltip_monthly_return": "Retorno mensual esperado en inversiones",
+  "tooltip_investment_allocation": "Porcentaje del excedente para invertir versus mantener en efectivo",
+  "projection_name_1": "Escalera al Millón",
+  "projection_name_2": "Ruta de las Riquezas",
+  "projection_name_3": "Jardín del Árbol de Dinero",
+  "projection_name_4": "Futuro Dorado",
+  "projection_name_5": "Cohete de Riqueza",
+  "projection_name_6": "Constructor de Fortuna",
+  "projection_name_7": "Fondo de Sueños",
+  "projection_name_8": "Misión Libertad Financiera",
+  "projection_name_9": "Sendero de Prosperidad",
+  "projection_name_10": "Reino del Flujo de Caja"
 }
 
